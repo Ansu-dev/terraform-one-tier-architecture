@@ -115,3 +115,12 @@ resource "aws_instance" "my_instance" {
     Name = "my-ec2-instance"
   }
 }
+
+# 12. eip 생성
+resource "aws_eip" "my_eip" {
+  instance = aws_instance.my_instance.id # ec2 instance 연결
+
+  tags = {
+    Name = "my-eip"
+  }
+}
